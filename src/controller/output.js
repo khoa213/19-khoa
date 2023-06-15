@@ -2423,5 +2423,12 @@ const  sendData = async (req,res) => {
     let output = JSON.stringify(data,null,2);
     fs.writeFileSync('output.json', output);
 }
+const  getData =  (req, res) => {
+    
+    let rawData = fs.readFileSync('output.json','utf-8');
+    let data = JSON.parse(rawData);
+    res.json(data);
+    console.log(data);
+}
 
-module.exports = {sendData}
+module.exports = {sendData,getData}
